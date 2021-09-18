@@ -131,7 +131,7 @@ async def error_handler(context, error):
                  ),
                  create_option(
                      name="exercice",
-                     description="L'exercice (ou les exercices)",
+                     description="L'exercice (ou les exercices) ou * si tu veux tous les exercices",
                      option_type=SlashCommandOptionType.STRING,
                      required=True
                  ),
