@@ -94,7 +94,7 @@ async def get_lls(class_name: str, subject: str, pages: list[int], exercices: li
         valid += 1
 
     if valid <= 0:
-        return BytesIO(render(f"<h1>Nous n'avons pas pu trouver de solution.<br>Livre: {subject}<br>Pages: {pages}<br>Exercices: {exercices}</h1>", width=800))
+        return BytesIO(render(f"<h1>Nous n'avons pas pu trouver de solution.<br>Livre: {subject}<br>Pages: {', '.join(pages)}<br>Exercices: {', '.join(exercices) if exercices is not None else '*'}</h1>", width=800))
 
     return BytesIO(render(results, css=str(style), width=width))
 
