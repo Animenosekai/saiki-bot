@@ -3,3 +3,4 @@ requests==2.23.0
 discord-py-interactions
 matplotlib
 pylatexenc
+beautifulsoup4
