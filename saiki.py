@@ -58,7 +58,9 @@ def to_int_list(text: str) -> list[int]:
     return results
 
 
-async def get_lls(class_name: str, subject: str, pages: list[int], exercices: list[int] = None, style: str = "", width: int = 1920):
+async def get_lls(class_name: str, subject: str, pages: list[int], exercices: list[int] = None, style: str = "", width: int = None):
+    if subject == "llce":
+        return BytesIO(render("<h1>Ptdr t'as cru t'étais en physique frr la llce y a r à faire tu sais parler anglais alors arrête de demander des exercices quand il y en a pas</h1>"))
     log("Converting the pages to integers")
     for index, page in enumerate(list(pages)):
         try:
@@ -148,7 +150,7 @@ async def error_handler(context, error):
                      required=False
                  )
              ])
-async def solution(context: SlashContext, classe: str, matiere: str, page: str, exercice: str = None, style: str = "", width: int = 1920):
+async def solution(context: SlashContext, classe: str, matiere: str, page: str, exercice: str = None, style: str = "", width: int = None):
     try:
         log(
             f"→ '/solution' came from the server {context.guild} (user: {context.author})", level=LogLevels.INFO)

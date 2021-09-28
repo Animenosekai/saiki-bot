@@ -1,4 +1,5 @@
 from imgkit import IMGKit
+from utils.renderer import render_html
 
 from utils.log import log
 
@@ -32,25 +33,23 @@ img {
 """
 
 
-def render(html: str, css: str = "", width: int = 1920):
+def render(html: str, css: str = "", width: int = None):
     log("Rendering HTML to Image")
     rendering = f"""
-<style>
-    {BASE_CSS}
-    {css}
-</style>
-<div class="content">
-{html}
-</div>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" /><meta charset="UTF-8" />
+    <style>
+        {BASE_CSS}
+        {css}
+    </style>
+</head>
+<body>
+    <div class="content">
+        {html}
+    </div>
+</body>
     """
-    rtn = IMGKit(
-        rendering,
-        "string",
-        options={'width': int(width)},
-        toc=None,
-        cover=None,
-        css=None,
-        config=None,
-        cover_first=None,
+    return render_html(
+        html=rendering,
+        width=width
     )
-    return rtn.to_img()

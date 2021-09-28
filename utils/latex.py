@@ -57,11 +57,8 @@ def render_latex(formula, fontsize=12, dpi=300, _format='svg'):
 
 
 def render_discord_latex(formula: str):
-    try:
-        log("Rendering latex to base64")
-        formula = str(formula)
-        if not formula.startswith("$"):
-            formula = "$" + formula + "$"
-        return "data:image/png;base64, " + b64encode(render_latex(formula, fontsize=6, _format="png")).decode("utf-8")
-    except Exception:
-        return ""
+    log("Rendering latex to base64")
+    formula = str(formula)
+    if not formula.startswith("$"):
+        formula = "$" + formula + "$"
+    return "data:image/png;base64, " + b64encode(render_latex(formula, fontsize=6, _format="png")).decode("utf-8")

@@ -16,8 +16,6 @@ To host your instance of Saiki Discord Bot, you need to copy the [`__protected.e
 
 Install the requirements with `pip install -r requirements.txt`
 
-Follow [imgkit#installation](https://github.com/jarrekk/imgkit#installation) to install `wkhtmltopdf` (for the HTML rendering).
-
 Run the `run.py` script with:
 
 ```bash
