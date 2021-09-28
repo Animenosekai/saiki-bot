@@ -1,4 +1,3 @@
-from imgkit import IMGKit
 from utils.renderer import render_html
 
 from utils.log import log
