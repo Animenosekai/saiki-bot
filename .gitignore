@@ -128,7 +128,7 @@ dmypy.json
 .DS_Store
 
 # Protected
-__protected.py
+# __protected.py
 
 # DB Test
 db
